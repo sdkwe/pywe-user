@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from local_wecfg_example import WECHAT
 from pywe_user import User, get_all_users, get_users
+
+from local_wecfg_example import WECHAT
 
 
 class TestUserCommands(object):

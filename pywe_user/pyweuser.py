@@ -28,7 +28,7 @@ class User(BaseToken):
         while goon:
             get_user_infos = self.get(self.WECHAT_USER_GET, access_token=final_access_token(self, appid=appid, secret=secret, token=token, storage=storage), next_openid=next_openid)
             if users_func:
-                users_func(get_user_infos)
+                users_func(appid, get_user_infos)
             if get_user_infos.get('count') < 10000:
                 goon = False
             next_openid = get_user_infos.get('next_openid', '')
