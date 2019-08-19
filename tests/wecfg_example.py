@@ -18,3 +18,5 @@ WECHAT = {
         }
     }
 }
+
+OPENID = 'OPENID'
