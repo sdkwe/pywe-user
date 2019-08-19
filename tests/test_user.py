@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from pywe_user import User, get_all_users, get_users, update_remark, user_info_batchget, get_all_blacks
-
-from local_wecfg_example import WECHAT, OPENID
+from local_wecfg_example import OPENID, WECHAT
+from pywe_user import User, get_all_blacks, get_all_users, update_remark, user_info_batchget
 
 
 class TestUserCommands(object):
