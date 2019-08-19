@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from local_wecfg_example import OPENID, WECHAT
-from pywe_user import User, get_all_blacks, get_all_users, update_remark, user_info_batchget
+from pywe_user import User, batchget_user_info, get_all_blacks, get_all_users, update_remark
 
 
 class TestUserCommands(object):
@@ -65,20 +65,20 @@ class TestUserCommands(object):
         assert isinstance(data, dict)
         assert data['errcode'] == 0
 
-    def test_user_info(self):
+    def test_get_user_info(self):
         appid = WECHAT.get('JSAPI', {}).get('appID')
         appsecret = WECHAT.get('JSAPI', {}).get('appsecret')
 
         user = User(appid=appid, secret=appsecret)
-        info = user.user_info(openid=OPENID)
+        info = user.get_user_info(openid=OPENID)
         assert isinstance(info, dict)
         assert info['openid'] == OPENID
 
-    def test_user_info_batchget(self):
+    def test_batchget_user_info(self):
         appid = WECHAT.get('JSAPI', {}).get('appID')
         appsecret = WECHAT.get('JSAPI', {}).get('appsecret')
 
-        infos = user_info_batchget(users=[
+        infos = batchget_user_info(users=[
             {
                 'openid': OPENID,
                 'lang': 'zh_CN',

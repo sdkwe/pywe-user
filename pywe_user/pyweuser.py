@@ -149,13 +149,13 @@ class User(BaseToken):
             },
         )
 
-    def user_info(self, openid, lang='zh_CN', appid=None, secret=None, token=None, storage=None):
+    def get_user_info(self, openid, lang='zh_CN', appid=None, secret=None, token=None, storage=None):
         """
         :param lang: 返回国家地区语言版本，zh_CN 简体，zh_TW 繁体，en 英语
         """
         return self.get(self.WECHAT_USER_INFO, access_token=final_access_token(self, appid=appid, secret=secret, token=token, storage=storage), openid=openid, lang=lang)
 
-    def user_info_batchget(self, users, appid=None, secret=None, token=None, storage=None):
+    def batchget_user_info(self, users, appid=None, secret=None, token=None, storage=None):
         """
         {
             "user_list": [
@@ -258,8 +258,8 @@ members_batchtagging = user.members_batchtagging
 members_batchuntagging = user.members_batchuntagging
 tags_getidlist = user.tags_getidlist
 update_remark = user.update_remark
-user_info = user.user_info
-user_info_batchget = user.user_info_batchget
+get_user_info = user.get_user_info
+batchget_user_info = user.batchget_user_info
 get_users = user.get_users
 get_all_users = user.get_all_users
 get_blacks = user.get_blacks
