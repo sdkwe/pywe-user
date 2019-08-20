@@ -110,8 +110,8 @@ class TestUserCommands(object):
         users = user.get_blacks()
         assert isinstance(users, dict)
 
-        user = get_all_blacks(appid=appid, secret=appsecret)
-        assert user is None
+        data = get_all_blacks(appid=appid, secret=appsecret)
+        assert data is None
 
         data = user.mambers_batchunblacklist([OPENID])
         assert isinstance(data, dict)
